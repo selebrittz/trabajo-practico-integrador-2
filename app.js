@@ -17,7 +17,7 @@ credentials: true // CRUCIAL: permitir cookies
 }));
 app.use(cookieParser()); // NECESARIO: para leer req.cookies
 
-app.use ("/api",userRoutes);
+app.use ("/api/auth",userRoutes);
 
 
 app.listen(PORT, async () => {

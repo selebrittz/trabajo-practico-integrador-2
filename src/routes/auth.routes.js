@@ -3,18 +3,21 @@ import {
     register,
      login,
      logout,
-     profile,
-     updateProfile} from "../controllers/auth.controller.js";
+     updateProfile,
+     getProfile} from "../controllers/auth.controller.js";
+import { authMiddleware } from "../middlewares/auth.middleware.js";
 
 
 export const userRoutes = Router()
 
+//rutas publicas
 userRoutes.post( "/register", register);
 
 userRoutes.post( "/login", login);
 
-userRoutes.get("/profile", profile);
+//rutas privadas
+userRoutes.get("/profile",authMiddleware, getProfile);
 
-userRoutes.put("/profile",updateProfile);
+userRoutes.put("/profile",authMiddleware, updateProfile);
 
-userRoutes.post ("/logout", logout);
+userRoutes.post ("/logout",authMiddleware, logout);

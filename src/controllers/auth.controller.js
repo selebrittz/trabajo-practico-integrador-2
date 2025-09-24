@@ -89,18 +89,31 @@ export const updateProfile = async (req, res) => {
        runValidators: true } //para que tome las mismas validaciones
     ).select("-password -__v"); //para que devuelva todo menos la contraseña
 
-    res.json(updatedUser.profile); // devolver solo el perfil
+    res.json(updatedUser.profile); // devolvemos solo el perfil
   } catch (error) {
     res.status(500).json({ message: "Error al actualizar perfil", error });
   }
 };
 
  
-//devolver la info del usuario decodificada 
-export const profile = (req, res) => {
-  return res.json({ user: req.user });
-};
+//obtener perfil del usuario autenticado.
+export const getProfile = async (req, res) =>{
+  try {
+        const userId = req.user.id; // viene del token por el authMiddleware
 
+    const user = await UserModel.findById(userId)
+      .select("username email role profile"); // devolvemos solo lo necesario
+
+    if (!user) {
+      return res.status(404).json({ message: "Usuario no encontrado" });
+    }
+
+    res.json(user.profile); //devolvemos solo el perfil
+  } catch (error) {
+    res.status(500).json({ message: "Error al obtener perfil", error });
+  }
+};
+    
 
 export const logout = async (req,res) => {
   res.clearCookie("token")
