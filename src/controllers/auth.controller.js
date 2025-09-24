@@ -34,7 +34,7 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   const { username, password } = req.body;
   try {
-    // Buscar usuario por username
+    // buscar usuario por username
     const user = await UserModel.findOne({ username });
     if (!user) {
       return res.status(401).json({ msg: "Credenciales inválidas" });
@@ -67,4 +67,15 @@ export const login = async (req, res) => {
       msg: "error interno del servidor",
     });
   }
+};
+ 
+//devolver la info del usuario decodificada 
+export const profile = (req, res) => {
+  return res.json({ user: req.user });
+};
+
+
+export const logout = async (req,res) => {
+  res.clearCookie("token")
+  return res.json({msg: "logout exitoso" });
 };
