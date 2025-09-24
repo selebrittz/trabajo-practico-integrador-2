@@ -1,8 +1,8 @@
 import { Router } from "express";
 
 import { 
-    getUser } from "../controllers/user.controller.js";
+    getUsers } from "../controllers/user.controller.js";
 
-export const userRoutes = Router()
+export const userRoutes = Router();
 
-userRoutes.get("/users")
+userRoutes.get("/users", getUsers);

@@ -52,6 +52,16 @@ const UserSchema = new Schema ({
     { timestamps: true }
 );
 
+//virtual populate de articulos
+
+UserSchema.virtual("article", {
+    ref: "Article",
+    localField: "_id",     // campo del usuario
+    foreignField: "author" // campo del Article que referencia al usuario
+});
+
+
+
 export const UserModel= model("User", UserSchema)
 
 

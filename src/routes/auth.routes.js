@@ -8,16 +8,16 @@ import {
 import { authMiddleware } from "../middlewares/auth.middleware.js";
 
 
-export const userRoutes = Router()
+export const authRoutes = Router()
 
 //rutas publicas
-userRoutes.post( "/register", register);
+authRoutes.post( "/register", register);
 
-userRoutes.post( "/login", login);
+authRoutes.post( "/login", login);
 
 //rutas privadas
-userRoutes.get("/profile",authMiddleware, getProfile);
+authRoutes.get("/profile",authMiddleware, getProfile);
 
-userRoutes.put("/profile",authMiddleware, updateProfile);
+authRoutes.put("/profile",authMiddleware, updateProfile);
 
-userRoutes.post ("/logout",authMiddleware, logout);
+authRoutes.post ("/logout",authMiddleware, logout);

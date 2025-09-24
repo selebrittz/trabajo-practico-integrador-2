@@ -4,6 +4,7 @@ import { connectDB } from './src/config/database.js';
 import { userRoutes } from './src/routes/user.routes.js';
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import { authRoutes } from './src/routes/auth.routes.js';
 
 dotenv.config();
 
@@ -17,7 +18,8 @@ credentials: true // CRUCIAL: permitir cookies
 }));
 app.use(cookieParser()); // NECESARIO: para leer req.cookies
 
-app.use ("/api/auth",userRoutes);
+app.use ("/api/auth",authRoutes);
+app.use ("/api",userRoutes);
 
 
 app.listen(PORT, async () => {
