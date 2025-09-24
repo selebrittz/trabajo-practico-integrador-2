@@ -68,6 +68,33 @@ export const login = async (req, res) => {
     });
   }
 };
+
+//Actualizar perfil embebido del usuario autenticado. 
+export const updateProfile = async (req, res) => {
+  try {
+    const userId = req.user.id;
+
+    const profileData = {
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      biography: req.body.biography,
+      avatarUrl: req.body.avatarUrl,
+      birthday: req.body.birthday,
+    };
+
+    const updatedUser = await UserModel.findByIdAndUpdate(
+      userId,
+      { $set: { profile: profileData } }, //solo actualiza el objeto profile
+      { new: true,//para que devuelva la actualizacion 
+       runValidators: true } //para que tome las mismas validaciones
+    ).select("-password -__v"); //para que devuelva todo menos la contraseña
+
+    res.json(updatedUser.profile); // devolver solo el perfil
+  } catch (error) {
+    res.status(500).json({ message: "Error al actualizar perfil", error });
+  }
+};
+
  
 //devolver la info del usuario decodificada 
 export const profile = (req, res) => {

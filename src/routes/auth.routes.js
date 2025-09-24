@@ -2,7 +2,9 @@ import { Router } from "express";
 import { 
     register,
      login,
-     logout} from "../controllers/auth.controller.js";
+     logout,
+     profile,
+     updateProfile} from "../controllers/auth.controller.js";
 
 
 export const userRoutes = Router()
@@ -10,5 +12,9 @@ export const userRoutes = Router()
 userRoutes.post( "/register", register);
 
 userRoutes.post( "/login", login);
+
+userRoutes.get("/profile", profile);
+
+userRoutes.put("/profile",updateProfile);
 
 userRoutes.post ("/logout", logout);
