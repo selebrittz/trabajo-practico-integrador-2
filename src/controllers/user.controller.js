@@ -1,10 +1,12 @@
 import { UserModel } from "../models/user.model.js";   
+import { ArticleModel } from "../models/articles.model.js";
 
 export const getUsers = async (req, res) => {
  try {
-    const users = await UserModel.find().populate("article")
+    const users = await UserModel.find().populate("articles")
     res.json(users);
  } catch (error) {
+  console.error(error)
     res.status(500).json ({msg: "no se pudo obtener los usuarios"})
  };
 }

@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const UserSchema = new Schema ({
+const UserSchema = new Schema({
     username: {
         type: String,
         unique: true,
@@ -53,8 +53,7 @@ const UserSchema = new Schema ({
 );
 
 //virtual populate de articulos
-
-UserSchema.virtual("article", {
+UserSchema.virtual("articles", {
     ref: "Article",
     localField: "_id",     // campo del usuario
     foreignField: "author" // campo del Article que referencia al usuario
