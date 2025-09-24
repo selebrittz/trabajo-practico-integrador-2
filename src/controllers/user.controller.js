@@ -2,7 +2,7 @@ import { UserModel } from "../models/user.model.js";
 
 export const getUsers = async (req, res) => {
  try {
-    const users = await UserModel.find()
+    const users = await UserModel.find().populate("Article")
     res.json(users);
  } catch (error) {
     res.status(500).json ({msg: "no se pudo obtener los usuarios"})
@@ -11,7 +11,7 @@ export const getUsers = async (req, res) => {
 
 export const getUserById = async (req, res) => {
   try {
-    const user = await UserModel.findById(req.params.id);
+    const user = await UserModel.findById(req.params.id)
     if (!user) return res.status(404).json({ message: "Usuario no encontrado" });
     res.json(user);
   } catch (error) {
