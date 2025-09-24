@@ -23,7 +23,7 @@ const articleSchema = new Schema ({
 
  },
 
- //relacion de 1:m
+ //relacion de 1: m
  author: {
    type: Schema.Types.ObjectId,
    ref:"User", // referencia al modelo User
