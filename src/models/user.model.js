@@ -46,9 +46,11 @@ const UserSchema = new Schema ({
       },
       birthday:{
         type: Date
-      }
-    }
-});
+      },
+    },
+},
+    { timestamps: true }
+);
 
 export const UserModel= model("User", UserSchema)
 
