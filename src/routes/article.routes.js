@@ -3,7 +3,7 @@ import { Router } from "express";
 import { createArticle, getAllArticles, getArticleById, updateArticle, deleteArticle
  } from "../controllers/article.controller.js";
 import { authMiddleware } from "../middlewares/auth.middleware.js";
-import { AdminMiddleware } from "../middlewares/admin.middlware.js";
+import { AdminMiddleware } from "../middlewares/admin.middleware.js";
 
 
 export const articleRoutes = Router();

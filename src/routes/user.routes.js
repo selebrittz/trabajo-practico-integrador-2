@@ -4,7 +4,7 @@ import {
     deleteUser,
     getUserById,
     getUsers } from "../controllers/user.controller.js";
-import { AdminMiddleware } from "../middlewares/admin.middlware.js";
+import { AdminMiddleware } from "../middlewares/admin.middleware.js";
 import { authMiddleware } from "../middlewares/auth.middleware.js";
 import { updateProfile } from "../controllers/auth.controller.js";
 

@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 import { authRoutes } from './src/routes/auth.routes.js';
 import { articleRoutes } from './src/routes/article.routes.js';
 import { commentRoutes } from './src/routes/comment.routes.js';
+import { tagRoutes } from './src/routes/tag.routes.js';
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use ("/api/auth",authRoutes);
 app.use ("/api",userRoutes);
 app.use ("/api", articleRoutes);
 app.use ("/api", commentRoutes);
+app.use ("/api", tagRoutes);
 
 app.listen(PORT, async () => {
     await connectDB();

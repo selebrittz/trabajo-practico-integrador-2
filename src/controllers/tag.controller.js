@@ -1,5 +1,5 @@
 import { TagModel } from "../models/tag.model.js";
-import { ArticleModel } from "../models/article.model.js";
+import { ArticleModel } from "../models/articles.model.js";
 
 
 export const createTag = async (req, res) => {

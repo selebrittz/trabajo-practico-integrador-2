@@ -7,7 +7,7 @@ import {
   updateComment,
   deleteComment,
 } from "../controllers/comment.controller.js";
-import { AdminMiddleware } from "../middlewares/admin.middlware.js";
+import { AdminMiddleware } from "../middlewares/admin.middleware.js";
 
 export const commentRoutes = Router();
 
