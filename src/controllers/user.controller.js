@@ -1,6 +1,7 @@
 import { UserModel } from "../models/user.model.js";   
 import { ArticleModel } from "../models/articles.model.js";
 
+
 export const getUsers = async (req, res) => {
  try {
     const users = await UserModel.find().populate("articles")
@@ -13,7 +14,7 @@ export const getUsers = async (req, res) => {
 
 export const getUserById = async (req, res) => {
   try {
-    const user = await UserModel.findById(req.params.id)
+    const user = await UserModel.findById(req.params.id).populate("articles").populate("comments")
     if (!user) return res.status(404).json({ message: "Usuario no encontrado" });
     res.json(user);
   } catch (error) {

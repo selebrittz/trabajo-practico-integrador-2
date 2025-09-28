@@ -1,8 +1,10 @@
 export const AdminMiddleware = (req, res, next) => {
   const userLogged = req.user;
+     console.log(req.user)
   
 //verifico el rol que tiene el user
-  if (!userLogged.role !== "admin") {
+  if (userLogged.role !== "admin") {
+
     return res.status(401).json({
       msg: "Usted no tiene los permisos",
     });

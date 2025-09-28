@@ -59,6 +59,12 @@ UserSchema.virtual("articles", {
     foreignField: "author" // campo del Article que referencia al usuario
 });
 
+UserSchema.virtual("comments", {
+    ref: "Comment",
+    localField: "_id",     // campo del usuario
+    foreignField: "author" // campo comment que referencia al usuario
+});
+
 
 
 export const UserModel= model("User", UserSchema)
