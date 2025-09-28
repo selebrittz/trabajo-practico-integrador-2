@@ -1,4 +1,5 @@
 import { ArticleModel } from "../models/articles.model.js";
+import { TagModel } from "../models/tag.model.js";
 
 export const createArticle = async (req, res) => {
   try {

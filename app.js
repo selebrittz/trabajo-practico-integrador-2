@@ -5,6 +5,7 @@ import { userRoutes } from './src/routes/user.routes.js';
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import { authRoutes } from './src/routes/auth.routes.js';
+import { articleRoutes } from './src/routes/article.routes.js';
 
 dotenv.config();
 
@@ -20,7 +21,7 @@ app.use(cookieParser()); // NECESARIO: para leer req.cookies
 
 app.use ("/api/auth",authRoutes);
 app.use ("/api",userRoutes);
-
+app.use ("/api", articleRoutes);
 
 app.listen(PORT, async () => {
     await connectDB();

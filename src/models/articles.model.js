@@ -3,18 +3,18 @@ import { Schema, model } from "mongoose";
 const articleSchema = new Schema ({
  title: {
     type: String,
-    minLenght: 3,
-    maxLenght: 200,
+    minlenght: 3,
+    maxlenght: 200,
     required: true
  },
  content: {
     type: String,
-    minLenght: 50,
+    minlenght: 50,
     required: true
  },
  excerpt: {
     type:String,
-    minLenght: 500
+    maxlenght: 500
  },
  status: {
     type:String,
