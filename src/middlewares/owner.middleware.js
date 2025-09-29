@@ -1,4 +1,4 @@
-import { ArticleModel } from "../models/article.model.js";
+import { ArticleModel } from "../models/articles.model.js";
 
 export const ownerMiddleware = async (req, res, next) => {
   try {

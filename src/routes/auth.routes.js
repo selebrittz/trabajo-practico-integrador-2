@@ -6,9 +6,9 @@ import {
      updateProfile,
      getProfile} from "../controllers/auth.controller.js";
 import { authMiddleware } from "../middlewares/auth.middleware.js";
-import { createUserValidations, ProfileValidations } from "../middlewares/validations.js/auth.validator.js";
+import { createUserValidations, ProfileValidations } from "../middlewares/validations/auth.validator.js";
 import { validationsAplicated } from "../middlewares/validator.js";
-import { validateData } from "../middlewares/match.middleware.js";
+
 
 
 export const authRoutes = Router()
