@@ -91,10 +91,31 @@ export const updateProfile = async (req, res) => {
 
     res.json(updatedUser.profile); // devolvemos solo el perfil
   } catch (error) {
+    console.log(error)
     res.status(500).json({ message: "Error al actualizar perfil", error });
   }
-};
 
+};
+// try {
+//   const user = await UserModel.findById(userId);
+//   if (!user) return res.status(404).json({ message: "Usuario no encontrado" });
+
+//   // Merge con los campos enviados
+//   user.profile = {
+//     ...user.profile.toObject(),
+//     ...req.body.profile
+//   };
+
+//   await user.validate(); // valida todo el subdocumento antes de guardar
+//   await user.save();     // guarda los cambios
+
+//   res.json(user.profile);
+// } catch (error) {
+//   console.log(error);
+//   res.status(500).json({ message: "Error al actualizar perfil", error });
+// }
+
+//recomendacion de codigo de una ia
  
 //obtener perfil del usuario autenticado.
 export const getProfile = async (req, res) =>{

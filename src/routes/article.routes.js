@@ -6,6 +6,7 @@ import { authMiddleware } from "../middlewares/auth.middleware.js";
 import { AdminMiddleware } from "../middlewares/admin.middleware.js";
 
 
+
 export const articleRoutes = Router();
 
 articleRoutes.post("/articles", authMiddleware,createArticle);

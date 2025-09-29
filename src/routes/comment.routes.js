@@ -11,8 +11,8 @@ import { AdminMiddleware } from "../middlewares/admin.middleware.js";
 
 export const commentRoutes = Router();
 
-commentRoutes.post("/comments", authMiddleware, createComment);
-commentRoutes.get("/comments/article/:articleId", authMiddleware, getCommentsByArticle);
+commentRoutes.post("/comments", authMiddleware,createComment);
+commentRoutes.get("/comments/article/:articleId", authMiddleware,getCommentsByArticle);
 commentRoutes.get("/comments/my", authMiddleware, getMyComments);
 commentRoutes.put("/comments/:id", authMiddleware, AdminMiddleware, updateComment);
 commentRoutes.delete("/comments/:id", authMiddleware, AdminMiddleware, deleteComment);
